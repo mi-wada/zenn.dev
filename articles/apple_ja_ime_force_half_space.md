@@ -6,7 +6,7 @@ topics: ["Karabiner", "macOS", "IME"]
 published: true
 ---
 
-このruleをComplex Modificationsに追加する。
+このruleをComplex Modificationsに追加する。`Shift + Space`で半角スペースが入力可能なので、`Space`を押したらそれが入力されるようにしている。
 
 ```json
 {
