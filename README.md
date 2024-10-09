@@ -12,6 +12,10 @@
 npx zenn new:article --slug SLUGSLUG
 ```
 
+## How to publish
+
+Just push to repository.
+
 ## How to update Zenn CLI
 
 ```shell
