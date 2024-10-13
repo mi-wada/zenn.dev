@@ -10,25 +10,33 @@ published: true
 
 ```json
 {
-    "description": "全角スペース->半角スペース",
-    "manipulators": [
+  "description": "全角スペース->半角スペース",
+  "manipulators": [
+    {
+      "type": "basic",
+      "conditions": [
         {
-            "conditions": [
-                {
-                    "input_sources": [{ "language": "ja" }],
-                    "type": "input_source_if"
-                }
-            ],
-            "from": { "key_code": "spacebar" },
-            "to": [
-                {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_shift"]
-                }
-            ],
-            "type": "basic"
+          "input_sources": [
+            {
+              "language": "ja"
+            }
+          ],
+          "type": "input_source_if"
         }
-    ]
+      ],
+      "from": {
+        "key_code": "spacebar"
+      },
+      "to": [
+        {
+          "key_code": "spacebar",
+          "modifiers": [
+            "left_shift"
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
