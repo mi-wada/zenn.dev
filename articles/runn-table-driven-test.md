@@ -1,5 +1,5 @@
 ---
-title: "runnでTable driven testを実装する"
+title: "runnでTable driven test"
 emoji: "🐈"
 type: "tech"
 topics:
@@ -19,7 +19,7 @@ published: true
 
 以下のリポジトリにサンプルコードを載せています。
 
-<https://github.com/mi-wada/runn_table_driven_test>
+https://github.com/mi-wada/runn_table_driven_test
 
 今回は以下の2つのテストケースを実装します。
 
