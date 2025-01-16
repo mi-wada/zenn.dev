@@ -57,8 +57,7 @@ class BaseSerializer
 end
 ```
 
-<details>
-  <summary>テストコード</summary>
+:::details テストコード
 
 ```rb
 RSpec.describe BaseSerializer do
@@ -108,7 +107,7 @@ end
 
 ```
 
-</details>
+:::
 
 ## 2. `ActiveModel::Serializer`を`BaseSerializer`で置き換える
 
