@@ -1,5 +1,5 @@
 ---
-title: "KarabinerでArcブラウザのサイドバーをCmd-Bで閉じられるようにする"
+title: "KarabinerでArcブラウザのサイドバーをCmd-Bで閉じる"
 emoji: "👾"
 type: "tech"
 topics: ["Karabiner", "Arc", "macOS"]
