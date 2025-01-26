@@ -35,7 +35,7 @@ https://github.com/mi-wada/runn_table_driven_test
 * `.env`
   * 環境変数を定義する
 
-では、それぞれのファイルについて説明していきます。
+では、それぞれのファイルについて説明します。
 
 ### test.yaml
 
