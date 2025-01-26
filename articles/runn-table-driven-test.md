@@ -13,7 +13,7 @@ published: true
 
 最近仕事で[runn](https://github.com/k1LoW/runn)をAPIのE2Eテストツールとして使っています。シンプルな記述でテストケースを書ける点と、E2Eのテストケースを負荷テストに容易に転用できる点が気に入っています。
 
-この記事では、runnでTable driven testを実装する方法を紹介します。Table driven testについては[Go Wiki: TableDrivenTests](https://go.dev/wiki/TableDrivenTests)をご覧ください。
+この記事では、runnでTable driven testを実装する方法を紹介します。なお、Table driven testについて馴染みがない方は[Go Wiki: TableDrivenTests](https://go.dev/wiki/TableDrivenTests)をご覧ください。
 
 ## 実装
 
@@ -29,19 +29,19 @@ https://github.com/mi-wada/runn_table_driven_test
 全体としてこれらのファイルを用います。
 
 * `test.yaml`
-  * 全テストケースを定義する。テストケース毎に異なる引数や期待する値を定義する。
+  * 全テストケースを定義するエントリーポイント。テストケース毎に異なる引数や期待する値を定義する。
 * `parts/get.yaml`
-  * リクエストの実行やレスポンスのアサーションなどの共通処理を行う
+  * リクエストの実行やレスポンスのアサーションなどの全テストケースで共通する処理を定義する。
 * `.env`
-  * 環境変数を定義する
+  * 環境変数を定義する。
 
 では、それぞれのファイルについて説明します。
 
 ### test.yaml
 
-このファイルに全テストケースを記述します。テストケース毎に異なる引数や期待する値を書きます。
+このファイルに全テストケースを記述します。エントリーポイントとなるファイルです。テストケース毎に異なる引数や期待する値を書きます。
 
-レスポンスのアサーションは`parts/get.yaml`で行います。このファイルでは、runnの[include機能](https://github.com/k1LoW/runn?tab=readme-ov-file#include-runner-include-other-runbook)を使って`parts/get.yaml`を読み込んでいます。
+レスポンスのアサーション等は`parts/get.yaml`で行います。このファイルでは、runnの[include機能](https://github.com/k1LoW/runn?tab=readme-ov-file#include-runner-include-other-runbook)を使って`parts/get.yaml`を読み込んでいます。
 
 ```yaml:test.yaml
 desc: GET /get
