@@ -26,7 +26,9 @@ https://github.com/mi-wada/runn_table_driven_test
 * `GET https://httpbin.org?q=hello` を呼び出すと、`200 OK` かつ `{"args":{"q":"hello"}}`を含むレスポンスボディを返す。
 * `GET https://httpbin.org?q=world` を呼び出すと、`200 OK` かつ `{"args":{"q":"world"}}`を含むレスポンスボディを返す。
 
-以下のファイルにテストケースを記述します。runnの[include機能](https://github.com/k1LoW/runn?tab=readme-ov-file#include-runner-include-other-runbook)を使って`./parts/get.yaml`を読み込んでいます。`./parts/get.yaml`には共通する処理やアサーションを記述しています。
+以下のファイルに全テストケースを記述します。テストケース毎に異なる引数や期待する値を書きます。
+
+レスポンスのアサーションは`./parts/get.yaml`で行います。`./parts/get.yaml`はrunnの[include機能](https://github.com/k1LoW/runn?tab=readme-ov-file#include-runner-include-other-runbook)を使って読み込んでいます。
 
 ```yaml:e2e/e2e.yaml
 desc: GET /get
@@ -51,7 +53,11 @@ steps:
           }
 ```
 
-`./parts/get.yaml`は以下のような内容です。e2e.yamlから渡されたqをクエリパラメーターにセットしてリクエストし、レスポンスをアサートしています。API_BASE_URLは環境変数で設定しています。`test`フィールドでは[expr-lang/expr](https://github.com/expr-lang/expr)の記法が使えます[^1]。
+`./parts/get.yaml`は以下のような内容です。e2e.yamlで各テストケース毎に定義したvarsに基づきHTTPリクエストを行いレスポンスをアサートします。
+
+API_BASE_URLは環境変数として設定しています。
+
+なお、`test`フィールドでは[expr-lang/expr](https://github.com/expr-lang/expr)の記法が使えます[^1]。
 
 [^1]: <https://github.com/k1LoW/runn?tab=readme-ov-file#expression-evaluation-engine>
 
@@ -68,7 +74,7 @@ steps:
       steps[0].res.body.args == fromJSON(vars.want_body_args)
 ```
 
-API_BASE_URLは以下のように.envファイルで設定しています。.envファイルはrunnの実行時に[--enf-fileオプション](https://github.com/k1LoW/runn/blob/20d1c931ca36136bb342a85e168fe82e2c69c94e/cmd/run.go#L152)で指定することで環境変数として読み込まれます。
+API_BASE_URLは以下のように.envファイルで定義しています。.envファイルはrunnの実行時に[--enf-fileオプション](https://github.com/k1LoW/runn/blob/20d1c931ca36136bb342a85e168fe82e2c69c94e/cmd/run.go#L152)で`runn run --env-file .env`のように指定することで環境変数として展開されます。
 
 ```plaintext:e2e/.env
 API_BASE_URL=https://httpbin.org
