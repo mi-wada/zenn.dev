@@ -70,7 +70,7 @@ steps:
 
 このファイルは、`test.yaml`で各テストケース毎に定義したvarsに基づきHTTPリクエストを行いレスポンスをアサートします。
 
-API_BASE_URLは環境変数として設定しています。実行対象環境を容易に切り替えるためです。
+API_BASE_URLは環境変数として設定しています。これにより実行対象環境を容易に切り替えることが可能です。
 
 なお、`test`フィールドでは[expr-lang/expr](https://github.com/expr-lang/expr)の記法が使えます[^1]。
 
