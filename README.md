@@ -1,4 +1,4 @@
-# Zenn
+# zenn.dev
 
 ## ToDo
 
