@@ -60,7 +60,7 @@ func TestMyFunc(t *testing.T) {
     t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
       t.Parallel()
 
-      logBytes := captureSlog(t, func() {
+      logBytes := testutil.CaptureSlog(t, func() {
         myFunc()
       })
 
