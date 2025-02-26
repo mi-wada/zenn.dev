@@ -29,7 +29,7 @@ func TestXxx(t *testing.T) {
 }
 ```
 
-`SetupMain`などで起動しておくのも便利。
+`TestMain`などで起動しておくのも便利。
 
 ```go
 func TestMain(m *testing.M) {
