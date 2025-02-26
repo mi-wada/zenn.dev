@@ -5,6 +5,7 @@ type: "tech"
 topics:
   - "Go"
   - "slog"
+  - "Test"
 published: true
 ---
 
