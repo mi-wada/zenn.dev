@@ -10,7 +10,7 @@ published: true
 
 以下の設定を`settings.json`に追加する。
 
-```json
+```jsonc
 {
   // ...
   "typescript.preferences.preferTypeOnlyAutoImports": true,
