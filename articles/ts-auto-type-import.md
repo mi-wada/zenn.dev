@@ -1,7 +1,7 @@
 ---
 title: "VS Codeで自動でtype-only importする"
 emoji: "🛵"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "tech"
 topics: ["TypeScript", "VSCode"]
 published: true
 ---
