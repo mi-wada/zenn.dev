@@ -1,14 +1,18 @@
 ---
 title: "MCPのSampling機能を試す"
 emoji: "🛵"
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
+type: "tech"
+topics: ["LLM", "MCP", "GitHub Copilot", "VSCode"]
 published: false
 ---
 
 MCPの仕様書を読んでいたら[Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)という機能があり、面白そうだったので試してみました。また最近[GitHub CopilotがSampling機能をサポートした](https://code.visualstudio.com/updates/v1_101#_mcp-support-for-sampling-experimental)ので、クライアントにはGitHub Copilotを使いました。
 
 ## Samplingとは
+
+Samplingの基本的な説明
+サーバーからクライアントを呼び出すという点が奇妙。もはやそれはサーバーではないのでは？
+Samplingの嬉しさ。
 
 ## 実装
 
