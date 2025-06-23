@@ -132,11 +132,11 @@ await server.connect(transport);
 
 そしてChatから以下のように実行できます。Outputを見ると占い結果が含まれているため、Samplingが成功していることがわかります。
 
-![MCPのSampling機能をGitHub Copilot Chatで利用する例](mcp-sampling-result.png)
+![MCPのSampling機能をGitHub Copilot Chatで利用する例](/images/mcp-sampling/mcp-sampling-result.png)
 
 初回実行時には、Sampling機能の使用許可を求める確認ダイアログが表示されます：
 
-![Sampling機能の利用可否の確認モーダル](mcp-sampling-confirmation.png)
+![Sampling機能の利用可否の確認モーダル](/images/mcp-sampling/mcp-sampling-confirmation.png)
 
 ## おわりに
 
