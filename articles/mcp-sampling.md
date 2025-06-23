@@ -3,16 +3,26 @@ title: "MCPのSampling機能を試す"
 emoji: "🛵"
 type: "tech"
 topics: ["LLM", "MCP", "GitHub Copilot", "VSCode"]
-published: false
+published: true
 ---
 
-MCPの仕様書を読んでいたら[Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)という機能があり、面白そうだったので試してみました。また最近[GitHub CopilotがSampling機能をサポートした](https://code.visualstudio.com/updates/v1_101#_mcp-support-for-sampling-experimental)ので、クライアントにはGitHub Copilotを使いました。
+MCPの仕様書を読んでいたら[Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)という機能があり、面白そうだったので試してみました。また最近[GitHub CopilotがSampling機能をサポートした](https://code.visualstudio.com/updates/v1_101#_mcp-support-for-sampling-experimental)ので、クライアントにはGitHub Copilotを使いました。なお、現時点ではClaude DesktopはSamplingに対応していないです。
+
+今回用いるコードは全て以下で公開しています：
+
+<https://github.com/mi-wada/mcp-sampling-examples/tree/main/fortune-mcp-server>
 
 ## Samplingとは
 
-Samplingの基本的な説明
-サーバーからクライアントを呼び出すという点が奇妙。もはやそれはサーバーではないのでは？
-Samplingの嬉しさ。
+Samplingとは、MCPサーバーがクライアントに対してLLMの推論を要求できる機能です。サーバーがクライアントを呼び出すという従来とは逆方向の通信なのでそこは注意が必要です。
+
+Samplingの大雑把なフローは以下の通りです：
+
+1. サーバーがクライアントに`sampling/createMessage`リクエストを送信
+2. クライアントがLLMに推論をさせる
+3. クライアントが推論結果をサーバーに返却
+
+詳しい仕様は[Samplingのドキュメント](https://modelcontextprotocol.info/docs/concepts/sampling/)を参照してください。
 
 ## 実装
 
@@ -102,38 +112,32 @@ await server.connect(transport);
 
 ## 実際に試してみる
 
-まず以下を`settings.json`に追加します。
+まずはVS Codeの`settings.json`に以下の設定を追加します：
 
 ```jsonc
 {
-// ...
- "mcp": {
-   // ...
-   "fortune": {
-    "command": "path to npm",
-    "args": ["run", "run"],
-    "cwd": "/Users/wada.mitsuaki/github.com/mi-wada/mcp-sampling-examples/fortune-mcp-server"
-   }
-   // ...
+  // ...
+  "mcp": {
+    // ...
+    "fortune": {
+      "command": "path to npm",
+      "args": ["run", "start"],
+      "cwd": "/path/to/your/fortune-mcp-server"
+    }
+    // ...
   }
- },
-// ...
+  // ...
 }
 ```
 
-そしてChatから以下のように利用できます。Outputを見ると占い結果が含まれているので、Samplingリクエストが成功していることがわかります。
+そしてChatから以下のように実行できます。Outputを見ると占い結果が含まれているため、Samplingが成功していることがわかります。
 
 ![MCPのSampling機能をGitHub Copilot Chatで利用する例](mcp-sampling-result.png)
 
-なお、初回実行時は以下のような確認モーダルが表示されます。
+初回実行時には、Sampling機能の使用許可を求める確認ダイアログが表示されます：
 
 ![Sampling機能の利用可否の確認モーダル](mcp-sampling-confirmation.png)
 
 ## おわりに
 
-MCPのSampling機能を試してみました。
-
-- あんまり普及していないけど今後が楽しみ
-- MCP ServerにLLM利用機能の実装が簡単になるので便利そう
-
-なお、ちょっと試した感じSamplingリクエストでMCPの使用を指示したが無視された。GitHub Copilotの今の実装ではそれは制限していそう。
+MCPのSampling機能を使って、サーバーからクライアントに対してLLMの推論を要求することができました。なんか色々応用できそうですね。
