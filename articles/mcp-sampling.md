@@ -8,9 +8,7 @@ published: true
 
 MCPの仕様書を読んでいたら[Sampling](https://modelcontextprotocol.info/docs/concepts/sampling/)という機能があり面白そうだったので試してみました。また最近[GitHub CopilotがSampling機能をサポートした](https://code.visualstudio.com/updates/v1_101#_mcp-support-for-sampling-experimental)ので、クライアントにはGitHub Copilotを使いました。なお、現時点ではClaude DesktopはSamplingに対応していないです。
 
-今回用いるコードは全て以下で公開しています：
-
-<https://github.com/mi-wada/mcp-sampling-examples/tree/main/fortune-mcp-server>
+今回用いるコードは全てこちらで公開しています： <https://github.com/mi-wada/mcp-sampling-examples/tree/main/fortune-mcp-server>
 
 ## Samplingとは
 
