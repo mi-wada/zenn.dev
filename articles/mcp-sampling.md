@@ -26,7 +26,7 @@ Samplingの大雑把なフローは以下の通りです：
 
 名前を受け取って占い結果を返すMCPサーバーを実装しました。
 
-stdio transportを使っているので、stdoutを用いてClientにSamplingのリクエストを送り、stdinでSamplingのレスポンスを受け取っています。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を読んだ感じSamplingのためのAPIはまだなさそうなのなので愚直に書いています。
+stdio transportを使っているので、stdoutを用いてClientにSamplingのリクエストを送り、stdinでSamplingのレスポンスを受け取っています。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を読んだ感じSamplingのためのAPIはまだなさそうなので愚直に書いています。
 
 ```ts
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
