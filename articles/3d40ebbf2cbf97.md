@@ -15,7 +15,7 @@ published_at: "2024-02-02 19:16"
 
 そんな時以下の記事で、Railsが標準で実装している[`ActiveModel::Serializers::JSON`](https://github.com/rails/rails/blob/1c2529b9a6ba5a1eff58be0d0373d7d9d401015b/activemodel/lib/active_model/serializers/json.rb)の存在を知った。なのでこれに乗り換えることにした。
 
-https://product.st.inc/entry/2023/12/22/170502
+<https://product.st.inc/entry/2023/12/22/170502>
 
 ## 要件
 
