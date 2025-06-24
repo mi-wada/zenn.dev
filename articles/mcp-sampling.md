@@ -106,7 +106,6 @@ server.registerTool(
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
-
 ```
 
 ## 実際に試してみる
