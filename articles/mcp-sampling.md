@@ -16,7 +16,7 @@ Samplingとは、MCPサーバーがクライアントに対してLLMの推論を
 
 Samplingの大雑把なフローは以下の通りです：
 
-1. サーバーがクライアントに`sampling/createMessage`リクエストを送信
+1. MCPサーバーがMCPクライアントに`sampling/createMessage`リクエストを送信
 2. クライアントがLLMに推論をさせる
 3. クライアントが推論結果をサーバーに返却
 
@@ -26,7 +26,7 @@ Samplingの大雑把なフローは以下の通りです：
 
 名前を受け取って占い結果を返すMCPサーバーを実装しました。
 
-stdio transportを使っているので、stdoutを用いてClientにSamplingのリクエストを送り、stdinでSamplingのレスポンスを受け取っています。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を読んだ感じSamplingのためのAPIはまだなさそうなので愚直に書いています。
+stdio transportを使っているので、stdoutを用いてMCPクライアントにSamplingのリクエストを送り、stdinでSamplingのレスポンスを受け取っています。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を読んだ感じSamplingのためのAPIはまだなさそうなので愚直に書いています。
 
 ```ts
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -48,7 +48,7 @@ server.registerTool(
     },
   },
   async ({ name }: { name: string }) => {
-    // stdoutでSamplingのリクエストをクライアントに送る。
+    // stdoutでSamplingのリクエストをMCPクライアントに送る。
     const samplingRequest = {
       jsonrpc: "2.0",
       id: 1,
