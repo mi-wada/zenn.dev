@@ -24,10 +24,11 @@ Samplingの大雑把なフローは以下の通りです：
 
 ## 実装
 
-名前を受け取って占い結果を返すMCPサーバーを実装しました。占いはMCPサーバーが処理しているのではなく、Sampling機能を使って呼び出し元のLLMに処理させています。
+ユーザー名を受け取り占い結果を返すMCPサーバーを実装しました。占い処理自体はMCPサーバーではなく、Sampling機能を使って呼び出し元のLLMに任せています。
 
-stdio transportを使っているので、stdoutを用いてMCPクライアントにSamplingのリクエストを送り、stdinでSamplingのレスポンスを受け取っています。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を読んだ感じSamplingのためのAPIはまだなさそうなので愚直に書いています。
-全体的な処理の流れとしては、stdoutでSamplingのリクエストをMCPクライアントに送り、MCPクライアントがLLMに推論をさせ、その推論結果をstdinで受け取っています。stdoutとstdinがあべこべな使われ方されているので混乱しますね。詳しくはコードを見てください。
+通信にはstdio transportを利用しているため、MCPクライアントにstdoutでSamplingリクエストを送り、推論結果はstdinで受け取ります。[@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)を見る限り、Sampling用のAPIはまだないようなので愚直に実装しています。
+
+処理の流れをまとめると、stdoutでMCPクライアントにリクエスト送信、MCPクライアントがLLMに推論を依頼、stdinで推論結果を受信、といった流れです。stdoutとstdinの役割が逆転して見えるので少しややこしいですが、詳細はコードを参照してください。
 
 ```ts
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
