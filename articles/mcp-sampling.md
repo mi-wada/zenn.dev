@@ -140,4 +140,4 @@ await server.connect(transport);
 
 ## おわりに
 
-MCPのSampling機能を使って、サーバーからクライアントに対してLLMの推論を要求することができました。なんか色々応用できそうですね。
+MCPのSampling機能を使って、MCPサーバーからMCPクライアントに対してLLMの推論を要求することができました。なんか色々応用できそうですね。
