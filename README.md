@@ -3,7 +3,7 @@
 ## How to create new article
 
 ```shell
-npx zenn new:article --slug SLUGSLUG
+npx zenn new:article --slug <SLUG>
 ```
 
 ## How to publish
